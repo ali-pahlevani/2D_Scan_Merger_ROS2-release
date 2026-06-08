@@ -1,9 +1,0 @@
-Format: Bloom subset of https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: scan_2d_merger
-Upstream-Contact: https://github.com/ali-pahlevani/2D_Scan_Merger_ROS2/issues
-Source: https://github.com/ali-pahlevani/2D_Scan_Merger_ROS2
-
-Files: See file headers in repository for details
-Copyright: See package copyright in source code for details
-License: MIT
- See repository for full license text
