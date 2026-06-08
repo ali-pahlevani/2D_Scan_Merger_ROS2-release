@@ -1,0 +1,12 @@
+Source: ros-jazzy-scan-2d-merger
+Section: misc
+Priority: optional
+Maintainer: Ali Pahlevani <a.pahlevani1998@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-jazzy-ament-cmake, ros-jazzy-ament-cmake-auto, ros-jazzy-ament-cmake-gtest <!nocheck>, ros-jazzy-ament-lint-auto <!nocheck>, ros-jazzy-ament-lint-common <!nocheck>, ros-jazzy-geometry-msgs, ros-jazzy-rclcpp, ros-jazzy-rclcpp-components, ros-jazzy-sensor-msgs, ros-jazzy-tf2, ros-jazzy-tf2-geometry-msgs, ros-jazzy-tf2-ros, ros-jazzy-ros-workspace
+Homepage: https://github.com/ali-pahlevani/2D_Scan_Merger_ROS2
+Standards-Version: 3.9.2
+
+Package: ros-jazzy-scan-2d-merger
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-jazzy-geometry-msgs, ros-jazzy-rclcpp, ros-jazzy-rclcpp-components, ros-jazzy-sensor-msgs, ros-jazzy-tf2, ros-jazzy-tf2-geometry-msgs, ros-jazzy-tf2-ros, ros-jazzy-ros-workspace
+Description: A laser scan merger for 1 to N 2D LiDARs, with approximate-time synchronization.
