@@ -1,9 +1,9 @@
-from launch import LaunchDescription
-from launch_ros.actions import ComposableNodeContainer
-from launch_ros.descriptions import ComposableNode
 from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch_ros.actions import ComposableNodeContainer
+from launch_ros.descriptions import ComposableNode
 
 ARGUMENTS = [
     DeclareLaunchArgument(
@@ -17,15 +17,15 @@ ARGUMENTS = [
 def generate_launch_description():
 
     container = ComposableNodeContainer(
-        package="rclcpp_components",
-        executable="component_container",
-        name="component_manager_node",
-        namespace="",
+        package='rclcpp_components',
+        executable='component_container',
+        name='component_manager_node',
+        namespace='',
         composable_node_descriptions=[
             ComposableNode(
-                package="scan_2d_merger",
-                plugin="util::LaserScanMerger",
-                name="scan_2d_merger_node",
+                package='scan_2d_merger',
+                plugin='util::LaserScanMerger',
+                name='scan_2d_merger_node',
                 parameters=[PathJoinSubstitution([
                     get_package_share_directory('scan_2d_merger'),
                     'config',
@@ -34,7 +34,7 @@ def generate_launch_description():
                 ])]
             )
         ],
-        output="screen"
+        output='screen'
     )
 
     ld = LaunchDescription(ARGUMENTS)
