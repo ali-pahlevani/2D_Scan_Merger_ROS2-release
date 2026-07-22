@@ -3,6 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![ROS2](https://img.shields.io/badge/ROS2-Humble%20|%20Iron%20|%20Jazzy%20|%20Kilted-blue)](https://ros.org)
 [![C++](https://img.shields.io/badge/C%2B%2B-20-blue.svg)](https://isocpp.org)
+[![humble](https://img.shields.io/ros/v/humble/scan_2d_merger)](https://index.ros.org/p/scan_2d_merger/#humble)
+[![jazzy](https://img.shields.io/ros/v/jazzy/scan_2d_merger)](https://index.ros.org/p/scan_2d_merger/#jazzy)
 
 A ROS2 composable node that merges any number of 2D LiDAR scans into a single unified
 `sensor_msgs/LaserScan`, with approximate-time synchronization and parallel ray projection.
@@ -107,12 +109,12 @@ truncation can shift a reading into the wrong bin.
 
 ## ROS2 Compatibility
 
-| Distro | Ubuntu | Status |
-|---|---|---|
-| **Humble** (LTS) | 22.04 | Tested |
-| **Iron** | 22.04 | Compatible |
-| **Jazzy** (LTS) | 24.04 | Compatible |
-| **Kilted Kaiju** | 24.04 | Compatible |
+| Distro | Ubuntu | Status | apt |
+|---|---|---|---|
+| **Humble** (LTS) | 22.04 | Tested | `ros-humble-scan-2d-merger` |
+| **Iron** | 22.04 | Compatible | — |
+| **Jazzy** (LTS) | 24.04 | Compatible | `ros-jazzy-scan-2d-merger` |
+| **Kilted Kaiju** | 24.04 | Compatible | — |
 
 All four distros are supported without code changes. C++20 is required (`std::barrier`,
 `std::thread`, `std::atomic`) and is enforced unconditionally in `CMakeLists.txt`.
@@ -145,20 +147,41 @@ All dependencies are standard ROS2 packages available via `rosdep`:
 
 ## Getting Started
 
-### 1. Clone the repository
+### Binary installation (recommended)
+
+`scan_2d_merger` is available as an official ROS 2 package on the ROS buildfarm.
+Install it directly via apt — no build step needed:
+
+```bash
+# ROS 2 Humble (Ubuntu 22.04)
+sudo apt update && sudo apt install ros-humble-scan-2d-merger
+
+# ROS 2 Jazzy (Ubuntu 24.04)
+sudo apt update && sudo apt install ros-jazzy-scan-2d-merger
+```
+
+Once installed, source your ROS installation and skip straight to the
+[Configuration](#configuration) section.
+
+### Building from source
+
+Use this path if you need to modify the code, target Iron or Kilted, or work from a
+development checkout:
+
+#### 1. Clone the repository
 
 ```bash
 git clone https://github.com/ali-pahlevani/2D_Scan_Merger_ROS2.git
 ```
 
-### 2. Install dependencies
+#### 2. Install dependencies
 
 ```bash
 cd ~/2D_Scan_Merger_ROS2
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
-### 3. Build
+#### 3. Build
 
 ```bash
 colcon build --packages-select scan_2d_merger --symlink-install
@@ -167,7 +190,7 @@ colcon build --packages-select scan_2d_merger --symlink-install
 `--symlink-install` is recommended during development, so that changes to launch files,
 config files, and other non-compiled resources take effect without rebuilding.
 
-### 4. Source the workspace
+#### 4. Source the workspace
 
 ```bash
 source ~/2D_Scan_Merger_ROS2/install/setup.bash
